@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thallescaltabiano.cursomc.domain.Categoria;
-import com.thallescaltabiano.cursomc.services.CategoriaService;
+import com.thallescaltabiano.cursomc.domain.Cliente;
+import com.thallescaltabiano.cursomc.services.ClienteService;
 
 @RestController
-@RequestMapping(value="/categorias")
-public class CategoriaResource{ //como se fosse a pasta de rotas do node/express
+@RequestMapping(value="/clientes")
+public class ClienteResource { //como se fosse a pasta de rotas do node/express
 	
 	@Autowired
-	private CategoriaService service;
+	private ClienteService service;
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) { //ResponseEntity é um tipo de dados do spring contendo diversas informações do http
-		Categoria obj = service.find(id);
+		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
