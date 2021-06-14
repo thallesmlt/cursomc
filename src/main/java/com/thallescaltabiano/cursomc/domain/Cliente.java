@@ -39,6 +39,8 @@ public class Cliente implements Serializable{
 	private Set<String> telefones = new HashSet<>();  
 	//Como no UML telefone só contém string, criamos um tipo set, o qual tem o funcionamento de um List sem permitir repetição de valores
 	
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	public Cliente() {
 		
 	}
@@ -92,6 +94,14 @@ public class Cliente implements Serializable{
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -114,5 +124,6 @@ public class Cliente implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
+	}
+	
 }
