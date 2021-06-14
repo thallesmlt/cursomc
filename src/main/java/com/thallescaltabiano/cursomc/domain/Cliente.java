@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -39,6 +40,7 @@ public class Cliente implements Serializable{
 	private Set<String> telefones = new HashSet<>();  
 	//Como no UML telefone só contém string, criamos um tipo set, o qual tem o funcionamento de um List sem permitir repetição de valores
 	
+	@OneToMany(mappedBy = "cliente") 
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Cliente() {
