@@ -2,14 +2,25 @@ package com.thallescaltabiano.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+
 import com.thallescaltabiano.cursomc.domain.enums.EstadoPagamento;
 
+@Entity
 public class Pagamento implements Serializable {
-
+	
+	@Id
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private EstadoPagamento estado;
-
+	
+	@OneToOne
+	@JoinColumn(name="pedido_id") 
+	@MapsId //Mapeia o pedido para ter o mesmo valor do id da classe pagamento (classe atual)
 	private Pedido pedido;
 
 	public Pagamento() {
