@@ -15,6 +15,7 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.thallescaltabiano.cursomc.domain.enums.TipoCliente;
 
@@ -40,6 +41,7 @@ public class Cliente implements Serializable{
 	private Set<String> telefones = new HashSet<>();  
 	//Como no UML telefone só contém string, criamos um tipo set, o qual tem o funcionamento de um List sem permitir repetição de valores
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "cliente") 
 	private List<Pedido> pedidos = new ArrayList<>();
 	
